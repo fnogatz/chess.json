@@ -1,99 +1,99 @@
 {
-	"info": {
-		"name": "Example Tournament",
-		"date": {
-			"from": "2011-12-26",
-			"to": "2011-12-30"
-		},
-		"place": {
-			"name": "Mid of the Earth",
-			"address": {
-				"name": "Hotel California",
-				"street": "3435 Jerome Avenue",
-				"zip": "TX 78041",
-				"city": "Osnabrück",
-				"country": "Laredo"
-			}
-		}
-	},
-	"teams": {
-		"_t:1a884c": {
-			"name": "Chess Club California",
-			"country": "USA",
-			"players": [
-				"_p:810b46",
-				"_p:a1c470",
-				"_p:f1a056",
-				"_p:61da2b",
-				"_p:21abe5",
-				"_p:c1d51b",
-				"_p:816011"
-			]
-		}
-	},
-	"players": {
-		"_p:217992": {
-			"name": "Ketter,David",
-			"sex": "m",
-			"title": "GM",
-			"rating": {
-				"dwz": 2214,
-				"elo": 2210
-			},
-			"birth": "1968-03-23"
-		}
-	},
-	"pairings": [
-		[
-			{
-				"white": "_t:1a884c",
-				"black": "_t:c77f23",
-				"result": {
-					"white": 3.5,
-					"black": 2.5
-				},
-				"boards": [
-					{
-						"white": "_p:810b46",
-						"black": "_p:75dd1f",
-						"result": {
-							"white": 0.5,
-							"black": 0.5
-						}
-					}
-				]
-			}
-		]
-	],
-	"rankings": {
-		"start": ["_t:1a884c"],
-		"rounds": [
-			{
-				"criteria": ["Mannschaftspunkte", "Brettpunkte", "Buchholzpunkte"],
-				"ranking": [
-					{
-						"team": "_t:1a884c",
-						"values": [4, 12, 1]
-					}
-				]
-			},
-			{
-				"criteria": ["Mannschaftspunkte", "Brettpunkte", "Buchholzpunkte", "Stichkampf: Punkte"],
-				"ranking": [
-					{
-						"team": "_t:c77f23",
-						"values": [12, 28, 36, 3.5]
-					},
-					{
-						"team": "_t:1a884c",
-						"values": [12, 28, 36, 2.5]
-					},
-					{
-						"team": "_t:cae2f3",
-						"values": [11, 23, 32]
-					}
-				]
-			}
-		]
-	}
+  "info": {
+    "name": "Example Tournament",
+    "date": {
+      "from": "2011-12-26",
+      "to": "2011-12-30"
+    },
+    "place": {
+      "name": "Mid of the Earth",
+      "address": {
+        "name": "Hotel California",
+        "street": "3435 Jerome Avenue",
+        "zip": "TX 78041",
+        "city": "Osnabrück",
+        "country": "Laredo"
+      }
+    }
+  },
+  "teams": {
+    "_t:1a884c": {
+      "name": "Chess Club California",
+      "country": "USA",
+      "players": [
+        "_p:810b46",
+        "_p:a1c470",
+        "_p:f1a056",
+        "_p:61da2b",
+        "_p:21abe5",
+        "_p:c1d51b",
+        "_p:816011"
+      ]
+    }
+  },
+  "players": {
+    "_p:217992": {
+      "name": "Ketter,David",
+      "sex": "m",
+      "title": "GM",
+      "rating": {
+        "dwz": 2214,
+        "elo": 2210
+      },
+      "birth": "1968-03-23"
+    }
+  },
+  "pairings": [
+    [
+      {
+        "white": "_t:1a884c",
+        "black": "_t:c77f23",
+        "result": {
+          "white": 3.5,
+          "black": 2.5
+        },
+        "boards": [
+          {
+            "white": "_p:810b46",
+            "black": "_p:75dd1f",
+            "result": {
+              "white": 0.5,
+              "black": 0.5
+            }
+          }
+        ]
+      }
+    ]
+  ],
+  "rankings": {
+    "start": ["_t:1a884c"],
+    "rounds": [
+      {
+        "criteria": ["Mannschaftspunkte", "Brettpunkte", "Buchholzpunkte"],
+        "ranking": [
+          {
+            "team": "_t:1a884c",
+            "values": [4, 12, 1]
+          }
+        ]
+      },
+      {
+        "criteria": ["Mannschaftspunkte", "Brettpunkte", "Buchholzpunkte", "Stichkampf: Punkte"],
+        "ranking": [
+          {
+            "team": "_t:c77f23",
+            "values": [12, 28, 36, 3.5]
+          },
+          {
+            "team": "_t:1a884c",
+            "values": [12, 28, 36, 2.5]
+          },
+          {
+            "team": "_t:cae2f3",
+            "values": [11, 23, 32]
+          }
+        ]
+      }
+    ]
+  }
 }
