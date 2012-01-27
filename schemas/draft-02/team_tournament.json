@@ -1,0 +1,315 @@
+{
+	"type": "object",
+	"properties": {
+		"info": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string",
+					"minLength": 1,
+					"optional": false
+				},
+				"place": {
+					"type": [
+						{
+							"type": "string",
+							"minLength": 1
+						},
+						{
+							"type": "object",
+							"properties": {
+								"name": {
+									"type": "string",
+									"minLength": 1,
+									"optional": false
+								},
+								"address": {
+									"type": "object",
+									"properties": {
+										"name": {
+											"type": "string",
+											"optional": true
+										},
+										"street": {
+											"type": "string",
+											"format": "street-address",
+											"optional": false
+										},
+										"zip": {
+											"type": "string",
+											"format": "postal-code",
+											"optional": true
+										},
+										"city": {
+											"type": "string",
+											"format": "locality",
+											"optional": false
+										},
+										"country": {
+											"type": "string",
+											"format": "country",
+											"optional": false
+										}
+									},
+									"additionalProperties": false,
+									"optional": true
+								}
+							},
+							"additionalProperties": false
+						}
+					],
+					"optional": true
+				},
+				"date": {
+					"type": "object",
+					"properties": {
+						"from": {
+							"type": "string",
+							"format": "date",
+							"optional": true
+						},
+						"to": {
+							"type": "string",
+							"format": "date",
+							"optional": true
+						}
+					},
+					"additionalProperties": false,
+					"optional": true
+				}
+			},
+			"additionalProperties": false,
+			"optional": false
+		},
+		"teams": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string",
+						"minLength": 1,
+						"optional": false
+					},
+					"country": {
+						"type": "string",
+						"format": "country",
+						"optional": true
+					},
+					"players": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"pattern": "^_p:[0-9a-f]{6}$"
+						},
+						"optional": false
+					}
+				},
+				"additionalProperties": false
+			},
+			"optional": false
+		},
+		"players": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string",
+						"minLength": 1,
+						"optional": false
+					},
+					"sex": {
+						"type": "string",
+						"enum": ["m", "f"],
+						"optional": true
+					},
+					"title": {
+						"type": "string",	
+						"enum": ["GM", "IM", "FM", "WGM", "WIM", "WFM", "CM"],
+						"optional": true
+					},
+					"rating": {
+						"type": [
+							"number",
+							{
+								"type": "object",
+								"properties": {
+									"elo": {
+										"type": "integer",
+										"minimum": 300,
+										"maximum": 3500,
+										"optional": true
+									},
+									"dwz": {
+										"type": "integer",
+										"minimum": 0,
+										"maximum": 3000,
+										"optional": true
+									}
+								},
+								"additionalProperties": {
+									"type": "number"
+								}
+							}
+						]
+					},
+					"birth": {
+						"type": "string",
+						"format": "date",
+						"optional": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"optional": false
+		},
+		"pairings": {
+			"title": "List of Rounds",
+			"type": "array",
+			"items": {
+				"title": "List of Tables",
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"white": {
+							"type": "string",
+							"pattern": "^_t:[0-9a-f]{6}$",
+							"optional": false
+						},
+						"black": {
+							"type": "string",
+							"pattern": "^_t:[0-9a-f]{6}$",
+							"optional": false
+						},
+						"result": {
+							"type": "object",
+							"properties": {
+								"white": {
+									"type": "number",
+									"optional": false
+								},
+								"black": {
+									"type": "number",
+									"optional": false
+								}
+							},
+							"additionalProperties": false,
+							"optional": true
+						},
+						"boards": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"white": {
+										"type": "string",
+										"pattern": "^_p:[0-9a-f]{6}$",
+										"optional": false
+									},
+									"black": {
+										"type": "string",
+										"pattern": "^_p:[0-9a-f]{6}$",
+										"optional": false
+									},
+									"result": {
+										"type": "object",
+										"properties": {
+											"white": {
+												"type": [
+													"number",
+													{
+														"type": "string",
+														"enum": ["+", "-"]
+													}
+												],
+												"optional": false
+											},
+											"black": {
+												"type": [
+													"number",
+													{
+														"type": "string",
+														"enum": ["+", "-"]
+													}
+												],
+												"optional": false
+											}
+										},
+										"additionalProperties": false,
+										"optional": true
+									}
+								},
+								"additionalProperties": false
+							},
+							"optional": true
+						}
+					},
+					"additionalProperties": false
+				}
+			},
+			"optional": false
+		},
+		"rankings": {
+			"type": "object",
+			"properties": {
+				"start": {
+					"title": "Seeding before the first round",
+					"type": "array",
+					"items": {
+						"type": "string",
+						"pattern": "^_t:[0-9a-f]{6}$"
+					},
+					"optional": true
+				},
+				"rounds": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"criteria": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"minLength": 1
+								},
+								"optional": false
+							},
+							"ranking": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"team": {
+											"type": "string",
+											"pattern": "^_t:[0-9a-f]{6}$",
+											"optional": false
+										},
+										"values": {
+											"type": "array",
+											"items": {
+												"type": [
+													"number",
+													"string",
+													"boolean"
+												]
+											},
+											"minLength": 1,
+											"optional": false
+										}
+									},
+									"additionalProperties": false
+								},
+								"optional": false
+							}
+						}
+					},
+					"optional": true
+				}
+			},
+			"additionalProperties": false,
+			"optional": true
+		}
+	}
+}
